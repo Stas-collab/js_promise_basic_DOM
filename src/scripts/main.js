@@ -2,18 +2,18 @@
 
 // write your code here
 const logo = document.querySelector('.logo');
-const promis1 = new Promise((resolve, reject) => {
+const promise1 = new Promise((resolve, reject) => {
   logo.addEventListener('click', () => {
     resolve();
   });
 });
-const promis2 = new Promise((resolve, reject) => {
+const promise2 = new Promise((resolve, reject) => {
   setTimeout(() => {
     reject(new Error());
   }, 3000);
 });
 
-promis1
+promise1
   .then(() => {
     const div = document.createElement('div');
 
@@ -30,7 +30,7 @@ promis1
     document.body.appendChild(div);
   });
 
-promis2
+promise2
   .then(() => {
     const div = document.createElement('div');
 
