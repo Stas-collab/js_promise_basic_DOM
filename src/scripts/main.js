@@ -2,26 +2,20 @@
 
 // write your code here
 const logo = document.querySelector('.logo');
-
-function promis1() {
-  return new Promise((resolve, reject) => {
-    logo.addEventListener('click', () => {
-      resolve();
-    });
+const promis1 = new Promise((resolve, reject) => {
+  logo.addEventListener('click', () => {
+    resolve();
   });
-}
-
-function promis2() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject(Error);
-    }, 3000);
-  });
-}
+});
+const promis2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject(Error);
+  }, 3000);
+});
 
 async function promisOne() {
   try {
-    await promis1();
+    await promis1;
 
     const div = document.createElement('div');
 
@@ -40,7 +34,7 @@ async function promisOne() {
 
 async function promisTwo() {
   try {
-    await promis2();
+    await promis2;
 
     const div = document.createElement('div');
 
