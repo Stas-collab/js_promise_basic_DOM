@@ -9,46 +9,40 @@ const promis1 = new Promise((resolve, reject) => {
 });
 const promis2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject(Error);
+    reject(new Error());
   }, 3000);
 });
 
-async function promisOne() {
-  try {
-    await promis1;
-
+promis1
+  .then(() => {
     const div = document.createElement('div');
 
     div.classList.add('message');
     div.textContent = 'Promise was resolved!';
     document.body.appendChild(div);
-  } catch {
+  })
+  .catch(() => {
     const div = document.createElement('div');
 
     div.classList.add('message');
     div.classList.add('error-message');
     div.textContent = 'Promise was rejected!';
     document.body.appendChild(div);
-  }
-}
+  });
 
-async function promisTwo() {
-  try {
-    await promis2;
-
+promis2
+  .then(() => {
     const div = document.createElement('div');
 
     div.classList.add('message');
     div.textContent = 'Promise was resolved!';
     document.body.appendChild(div);
-  } catch {
+  })
+  .catch(() => {
     const div = document.createElement('div');
 
     div.classList.add('message');
     div.classList.add('error-message');
     div.textContent = 'Promise was rejected!';
     document.body.appendChild(div);
-  }
-}
-promisOne();
-promisTwo();
+  });
